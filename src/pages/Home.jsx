@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { TodoList } from "../components/TodoList";
 import { Formulario } from "../components/Formulario";
+import { ToDoProvider } from "../contexts/ToDoProvider";
 
 export const Home = () => {
   const [toDos, setToDos] = useState([
@@ -32,14 +33,20 @@ export const Home = () => {
   const pendingToDos = toDos.filter((todo) => !todo.done);
 
   return (
-    <div>
-      <div className="row">
-        <Formulario onSubmit={addToDo} />
+    <ToDoProvider>
+      <div>
+        <div className="row">
+          <Formulario onSubmit={addToDo} />
+        </div>
+        <div className="row">
+          <TodoList name="A fazer" list={pendingToDos} onClick={markTodo} />
+          <TodoList
+            name="Finalizados"
+            list={completedToDos}
+            onClick={markTodo}
+          />
+        </div>
       </div>
-      <div className="row">
-        <TodoList name="A fazer" list={pendingToDos} onClick={markTodo} />
-        <TodoList name="Finalizados" list={completedToDos} onClick={markTodo} />
-      </div>
-    </div>
+    </ToDoProvider>
   );
 };
