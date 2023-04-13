@@ -8,10 +8,10 @@ export const Home = () => {
     <ToDoProvider>
       <div>
         <div className="row">
-          <Formulario onSubmit={addToDo} />
+          <Formulario />
         </div>
         <div className="row">
-          <TodoList name="A fazer" list={pendingToDos} onClick={markTodo} />
+          <TodoList name="A fazer" />
           <TodoList
             name="Finalizados"
             list={completedToDos}
