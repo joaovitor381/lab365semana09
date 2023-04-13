@@ -1,6 +1,6 @@
 import { createContext, useState } from "react";
 
-export const todoContext = createContext;
+export const todoContext = createContext();
 
 export const ToDoProvider = ({ children }) => {
   const [toDos, setToDos] = useState([

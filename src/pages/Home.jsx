@@ -1,10 +1,9 @@
 import { TodoList } from "../components/TodoList";
 import { Formulario } from "../components/Formulario";
 import { ToDoProvider } from "../contexts/ToDoProvider";
-import { useToDos } from "../contexts/useToDos";
 
 export const Home = () => {
-  const { completedToDos, pendingToDos, addToDo, markTodo } = useToDos;
+  const { completedToDos, pendingToDos, addToDo, markTodo } = useToDos();
 
   return (
     <ToDoProvider>
